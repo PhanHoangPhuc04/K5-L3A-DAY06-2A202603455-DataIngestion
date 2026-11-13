@@ -1,0 +1,291 @@
+{
+  "labeler": "Phan Hoàng Phúc (tác giả) chấm. Tôi cũng là người thiết kế chunker B và bộ câu hỏi => nguy cơ thiên lệch có lợi cho B/C. Nhãn không suy ra từ khớp chuỗi; chỉ dùng hit flag để định vị đoạn.",
+  "coherence_scale": "0 = cắt giữa ý/thiếu chủ thể không hiểu; 1 = hiểu một phần; 2 = tự hiểu, giữ trọn ý",
+  "coherence_positions": "unit index 0,13,26,...,117 của data/clean/units.jsonl, offset = giữa Điều; chốt trước khi chấm. C dùng đúng chunk của B.",
+  "coherence": {
+    "A": [
+      {
+        "pos": "P1 59/Đ1",
+        "score": 2,
+        "reason": "Điều ngắn, chunk = cả Điều."
+      },
+      {
+        "pos": "P2 59/Đ14",
+        "score": 1,
+        "reason": "Có tiêu đề, khoản 1-2 trọn nhưng chunk kết thúc giữa câu khoản 3 ('...thì tổ chức,')."
+      },
+      {
+        "pos": "P3 59/Đ27",
+        "score": 2,
+        "reason": "Cả Điều trong một chunk."
+      },
+      {
+        "pos": "P4 59/Đ40",
+        "score": 2,
+        "reason": "Cả Điều; dẫn chiếu Điều 42 nhưng câu tự hiểu."
+      },
+      {
+        "pos": "P5 23/Đ2",
+        "score": 2,
+        "reason": "Cả Điều."
+      },
+      {
+        "pos": "P6 23/Đ15",
+        "score": 0,
+        "reason": "Bắt đầu giữa từ 'trữ, sử dụng...', mất chủ thể 'tổ chức, cá nhân kinh doanh' và tiêu đề; vị trí là vế 'phải được sự đồng ý' không rõ ai."
+      },
+      {
+        "pos": "P7 23/Đ28",
+        "score": 1,
+        "reason": "Bắt đầu giữa câu 'hội và nhu cầu...'; vế 'Thủ tướng Chính phủ ban hành Danh mục' vẫn có chủ thể nhưng mất tiêu đề Điều."
+      },
+      {
+        "pos": "P8 23/Đ41",
+        "score": 1,
+        "reason": "Bắt đầu giữa từ 'ại diện'; khoản 2 'Không được yêu cầu người tiêu dùng thanh toán...' thiếu chủ thể/tiêu đề dịch vụ liên tục."
+      },
+      {
+        "pos": "P9 23/Đ54",
+        "score": 1,
+        "reason": "Có tiêu đề nhưng danh sách điểm a-c bị cắt ở 'lợi ích của nhiều'."
+      },
+      {
+        "pos": "P10 23/Đ67",
+        "score": 2,
+        "reason": "Cả Điều trong chunk."
+      }
+    ],
+    "B": [
+      {
+        "pos": "P1 59/Đ1",
+        "score": 2,
+        "reason": "Cả Điều."
+      },
+      {
+        "pos": "P2 59/Đ14",
+        "score": 2,
+        "reason": "Cả Điều (<1000 ký tự), khoản 3 trọn."
+      },
+      {
+        "pos": "P3 59/Đ27",
+        "score": 2,
+        "reason": "Cả Điều."
+      },
+      {
+        "pos": "P4 59/Đ40",
+        "score": 2,
+        "reason": "Cả Điều; dẫn chiếu Điều 42."
+      },
+      {
+        "pos": "P5 23/Đ2",
+        "score": 2,
+        "reason": "Cả Điều."
+      },
+      {
+        "pos": "P6 23/Đ15",
+        "score": 2,
+        "reason": "Tiêu đề + khoản 1 trọn, chủ thể rõ."
+      },
+      {
+        "pos": "P7 23/Đ28",
+        "score": 2,
+        "reason": "Chunk 2 bắt đầu đúng ranh giới khoản 2, có lặp tiêu đề Điều."
+      },
+      {
+        "pos": "P8 23/Đ41",
+        "score": 2,
+        "reason": "Tiêu đề + khoản 1-2 trọn."
+      },
+      {
+        "pos": "P9 23/Đ54",
+        "score": 2,
+        "reason": "Tiêu đề + các điểm a-c trọn."
+      },
+      {
+        "pos": "P10 23/Đ67",
+        "score": 2,
+        "reason": "Cả Điều."
+      }
+    ]
+  },
+  "metadata_rule": "Kiểm từng bản ghi top-3 của 6 câu test: document_id, source URL, page (số Điều), article_title, version_year, effective_date so với data/clean/units.jsonl và văn bản gốc. ok = đủ và đúng.",
+  "metadata": {
+    "A": [
+      {
+        "q": "t01",
+        "ok": 3
+      },
+      {
+        "q": "t02",
+        "ok": 3
+      },
+      {
+        "q": "t03",
+        "ok": 3
+      },
+      {
+        "q": "t04",
+        "ok": 3
+      },
+      {
+        "q": "t05",
+        "ok": 3
+      },
+      {
+        "q": "t06",
+        "ok": 3
+      }
+    ],
+    "B": [
+      {
+        "q": "t01",
+        "ok": 3
+      },
+      {
+        "q": "t02",
+        "ok": 3
+      },
+      {
+        "q": "t03",
+        "ok": 3
+      },
+      {
+        "q": "t04",
+        "ok": 3
+      },
+      {
+        "q": "t05",
+        "ok": 3
+      },
+      {
+        "q": "t06",
+        "ok": 3
+      }
+    ],
+    "C": [
+      {
+        "q": "t01",
+        "ok": 3
+      },
+      {
+        "q": "t02",
+        "ok": 3
+      },
+      {
+        "q": "t03",
+        "ok": 3
+      },
+      {
+        "q": "t04",
+        "ok": 3
+      },
+      {
+        "q": "t05",
+        "ok": 3
+      },
+      {
+        "q": "t06",
+        "ok": 3
+      }
+    ]
+  },
+  "grounding_scale": "Chấm cả top-3 của câu: 0 = không có bằng chứng; 1 = có nhưng thiếu điều kiện/ngữ cảnh; 2 = đủ để trả lời và truy nguồn",
+  "grounding": {
+    "A": [
+      {
+        "q": "t01",
+        "score": 0,
+        "reason": "Top-3 là Đ57 khoản 5-6, Đ8, Đ58; không chunk nào nêu quyền yêu cầu cơ quan/tổ chức xã hội hỗ trợ thương lượng (Đ56 khoản 3)."
+      },
+      {
+        "q": "t02",
+        "score": 2,
+        "reason": "Chunk 71:1 chứa trọn khoản 3 'không phải nộp tiền tạm ứng án phí, không phải chịu án phí'."
+      },
+      {
+        "q": "t03",
+        "score": 1,
+        "reason": "40:0 có điểm a) nhưng điểm b) (danh sách bị cơ quan nước ngoài xử lý) bị cắt ở giới hạn 500 ký tự."
+      },
+      {
+        "q": "t04",
+        "score": 1,
+        "reason": "Không có Đ57 khoản 2; '07 ngày' chỉ xuất hiện ở Đ31 bản 2010 (sai phiên bản) và khoản 4-5 về hỗ trợ thương lượng (điều kiện khác)."
+      },
+      {
+        "q": "t05",
+        "score": 0,
+        "reason": "Chunk 42:1 bắt đầu 'uyết định bên có lỗi', mất chủ thể 'Tòa án' nằm ở chunk trước; không trả lời được 'ai'."
+      },
+      {
+        "q": "t06",
+        "score": 1,
+        "reason": "35:1 có khoản 2 nhưng mất tiêu đề 'được miễn trách nhiệm bồi thường' và đầu câu 'đã áp dụng đầy đủ'; người đọc không biết đây là trường hợp miễn trừ."
+      }
+    ],
+    "B": [
+      {
+        "q": "t01",
+        "score": 2,
+        "reason": "Rank 3 Đ56:0 chứa khoản 3 đầy đủ điều kiện (không trả lời hoặc từ chối không có lý do chính đáng)."
+      },
+      {
+        "q": "t02",
+        "score": 2,
+        "reason": "Đ71 trọn ở rank 1."
+      },
+      {
+        "q": "t03",
+        "score": 2,
+        "reason": "40:0 chứa đủ điểm a) và b) của khoản 1."
+      },
+      {
+        "q": "t04",
+        "score": 2,
+        "reason": "Rank 2 Đ57:0 có khoản 2 '07 ngày làm việc'. Rank 1 là Đ31 bản 2010 (cùng số ngày nhưng văn bản đã hết hiệu lực) => nhiễu phiên bản, chỉ phân biệt được nhờ metadata."
+      },
+      {
+        "q": "t05",
+        "score": 2,
+        "reason": "Rank 3 Đ42:0 bản 2010 có khoản 3 'Tòa án quyết định bên có lỗi'. Rank 1 là Đ70 bản 2023 (nhiễu phiên bản)."
+      },
+      {
+        "q": "t06",
+        "score": 2,
+        "reason": "Đ35 trọn ở rank 1, có tiêu đề miễn trách nhiệm và khoản 2."
+      }
+    ],
+    "C": [
+      {
+        "q": "t01",
+        "score": 2,
+        "reason": "Không có filter (câu không nêu phiên bản); giống B, Đ56:0 ở rank 3."
+      },
+      {
+        "q": "t02",
+        "score": 2,
+        "reason": "Giống B."
+      },
+      {
+        "q": "t03",
+        "score": 2,
+        "reason": "Giống B."
+      },
+      {
+        "q": "t04",
+        "score": 2,
+        "reason": "Filter 2023: Đ57:0 lên rank 1, ba kết quả đều bản 2023."
+      },
+      {
+        "q": "t05",
+        "score": 2,
+        "reason": "Filter 2010: Đ42:0 rank 2, ba kết quả đều bản 2010, hết nhiễu Đ70 bản 2023."
+      },
+      {
+        "q": "t06",
+        "score": 2,
+        "reason": "Giống B."
+      }
+    ]
+  }
+}

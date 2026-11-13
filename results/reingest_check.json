@@ -1,0 +1,16 @@
+{
+  "A": {
+    "chunks_in_input": 356,
+    "before": 356,
+    "after": 356,
+    "deleted_stale": 0,
+    "duplicates": 0
+  },
+  "B": {
+    "chunks_in_input": 213,
+    "before": 213,
+    "after": 213,
+    "deleted_stale": 0,
+    "duplicates": 0
+  }
+}

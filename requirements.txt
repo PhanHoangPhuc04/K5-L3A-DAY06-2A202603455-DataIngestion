@@ -1,0 +1,6 @@
+# Pipeline Day 06 (Chroma + sentence-transformers local). Đã chạy với các phiên bản dưới (Python 3.13.15, macOS arm64).
+sentence-transformers==6.3.0
+torch==2.15.0
+transformers==5.22.2
+chromadb==1.5.9
+beautifulsoup4==4.15.0

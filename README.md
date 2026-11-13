@@ -1,3 +1,37 @@
+# Bài làm Day 06 — Phan Hoàng Phúc (2A202603455)
+
+Corpus: Luật Bảo vệ quyền lợi người tiêu dùng bản 2010 + 2023 (HTML snapshot ở `data/raw/`). Embedding `intfloat/multilingual-e5-base` chạy local, vector store Chroma (lưu đĩa, cosine). Ba cấu hình A (fixed 500/50), B (theo khoản, max 1000), C (B + filter `version_year`).
+
+Báo cáo: [report/individual/2A202603455_PhanHoangPhuc.md](report/individual/2A202603455_PhanHoangPhuc.md)
+
+## Cách chạy (từ thư mục gốc repo, Python 3.11–3.13)
+
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+python -m src.run ingest       # raw HTML -> data/clean/units.jsonl, data/manifest.json, results/ingest_errors.json
+python -m src.run check        # xác minh 22 evidence nằm trong Điều gold + filter hợp lệ
+python -m src.run experiment   # nhúng, lưu Chroma (store/chroma), chạy A/B/C, ghi trace + metrics
+python -m src.run reingest     # nạp lại cùng phiên bản, kiểm không nhân đôi
+python -m src.audit sheets     # tạo bảng chấm tay results/audit/*.md
+python -m src.audit score      # tổng hợp nhãn results/audit/labels.json
+```
+
+Lần đầu `experiment` tải model (~1 GB). Không cần API key, chi phí 0. Không có fallback sang vector giả: lỗi model/store sẽ dừng chương trình.
+
+| Thư mục | Nội dung |
+|---|---|
+| `src/` | ingestion, chunking, embeddings, store (Chroma), evaluation, run, audit |
+| `data/` | `sources.json` (cấu hình nguồn), `raw/` (snapshot gốc), `clean/units.jsonl`, `manifest.json` |
+| `benchmark/questions.json` | 22 câu, 16 dev / 6 test, gold + evidence + filter, tiêu chí chọn chốt trước |
+| `artifacts/experiment_log.csv` | cấu hình, giả thuyết, kết quả A/B/C |
+| `results/` | trace top-3, metrics, index_stats, reingest_check, ingest_errors, audit/ |
+| `starter/` | khung pgvector gốc của đề, giữ nguyên (máy không có Docker nên dùng Chroma) |
+
+---
+
+# Đề bài gốc
+
 # Day 06 · Data Ingestion Engineering
 
 **Lab cá nhân** · **4 giờ** · **Dữ liệu tự chọn**

@@ -1,0 +1,7 @@
+strategy,split,hit1,hit3,n,split_evidence,filter_ok,filter_q,chunks,ingest_seconds,query_seconds,cost_usd
+A,dev,13,16,16,0,0,0,356,13.53,1.06,0
+A,test,2,3,6,2,0,0,356,13.53,1.06,0
+B,dev,11,16,16,0,0,0,213,12.18,0.84,0
+B,test,3,6,6,0,0,0,213,12.18,0.84,0
+C,dev,14,16,16,0,6,6,213,20.05,0.8,0
+C,test,4,6,6,0,2,2,213,20.05,0.8,0

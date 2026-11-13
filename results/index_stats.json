@@ -1,0 +1,72 @@
+{
+  "A": {
+    "chunking": "fixed_size",
+    "size": 500,
+    "overlap": 50,
+    "use_filter": false,
+    "chunks": 356,
+    "chars_total": 150508,
+    "len_min": 53,
+    "len_median": 500.0,
+    "len_mean": 422.8,
+    "len_max": 500,
+    "tokens_total": 38652,
+    "tokens_max": 156,
+    "chunks_over_model_limit": 0,
+    "ingest_seconds": 13.53,
+    "cost_usd": 0,
+    "same_chunks_as": null,
+    "upsert": {
+      "before": 0,
+      "after": 356,
+      "deleted_stale": 0
+    },
+    "query_seconds": 1.06
+  },
+  "B": {
+    "chunking": "by_paragraph",
+    "max_size": 1000,
+    "use_filter": false,
+    "chunks": 213,
+    "chars_total": 145106,
+    "len_min": 145,
+    "len_median": 757,
+    "len_mean": 681.2,
+    "len_max": 999,
+    "tokens_total": 36428,
+    "tokens_max": 284,
+    "chunks_over_model_limit": 0,
+    "ingest_seconds": 12.18,
+    "cost_usd": 0,
+    "same_chunks_as": null,
+    "upsert": {
+      "before": 0,
+      "after": 213,
+      "deleted_stale": 0
+    },
+    "query_seconds": 0.84
+  },
+  "C": {
+    "chunking": "by_paragraph",
+    "max_size": 1000,
+    "use_filter": true,
+    "chunks": 213,
+    "chars_total": 145106,
+    "len_min": 145,
+    "len_median": 757,
+    "len_mean": 681.2,
+    "len_max": 999,
+    "tokens_total": 36428,
+    "tokens_max": 284,
+    "chunks_over_model_limit": 0,
+    "ingest_seconds": 20.05,
+    "cost_usd": 0,
+    "same_chunks_as": "B",
+    "upsert": {
+      "before": 0,
+      "after": 213,
+      "deleted_stale": 0
+    },
+    "query_seconds": 0.8
+  }
+}

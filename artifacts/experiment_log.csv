@@ -1,4 +1,4 @@
 strategy,chunking,chunk_size,overlap,metadata,filter,vectorizer,hypothesis,dev_hit1,dev_hit3,test_hit1,test_hit3,notes
-A,,,,,,,,,,,,
-B,,,,,,,,,,,,
-C,,,,,,,,,,,,
+A,fixed_size theo ký tự trong từng Điều,500,50,"document_id, source, page(=Điều), article_title, chapter, law_number, version_year, is_current, effective_date",không,intfloat/multilingual-e5-base 768d (local),"Cửa sổ cố định cắt giữa khoản/điểm nên dễ tách bằng chứng và mất chủ thể; nhiều chunk hơn",13/16,16/16,2/6,3/6,"356 chunk; 2 câu test có trang gold trong top-3 nhưng bằng chứng bị tách (t04 khoản khác, t05 mất 'Tòa án')"
+B,by_paragraph: gom trọn khoản/điểm trong Điều + lặp tiêu đề Điều,max 1000,0,giống A,không,giống A,"Giữ trọn khoản và có tiêu đề nên chunk tự hiểu, bằng chứng không bị tách; nhưng không phân biệt bản 2010/2023",11/16,16/16,3/6,6/6,"213 chunk; top-3 của 8/8 câu có filter lẫn cả hai phiên bản"
+C,giống B,max 1000,0,giống A,"where version_year = giá trị người dùng nêu trong câu (8 câu: 6 dev, 2 test); câu không nêu phiên bản thì không lọc",giống A,"Lọc version_year loại nhiễu bản luật cũ/mới, tăng Hit@1 ở câu có phiên bản",14/16,16/16,4/6,6/6,"Chunk y hệt B (collection riêng). Filter tuân thủ 6/6 dev, 2/2 test. Chọn C theo tiêu chí chốt trước: Hit@3 dev hoà A=C=16/16, Hit@1 dev C=14 > A=13"
